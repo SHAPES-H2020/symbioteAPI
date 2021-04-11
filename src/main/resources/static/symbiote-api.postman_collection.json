@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "e4aff4ae-5b3a-49d7-a5c8-44aa731504c5",
+		"name": "symbiote-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:8443/symbiote/login",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{'usr':'icom1','psw':'icom'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"login"
+					]
+				},
+				"description": "login to symbiote\r\nget a token\r\n{\"token\":\"7c7bwl88c70w7\"}"
+			},
+			"response": ["body": "{\"token\":\"7c7bwdkk7k7dc\"}"
+				}
+			]
+		},
+		{
+			"name": "https://localhost:8443/symbiote/getListOfL1",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{'token':'7c7b0880870ka','platid':'icom-platform'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/getListOfL1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"getListOfL1"
+					]
+				},
+				"description": "get a list of L1 resources platid could be empty in order to get a list of all the L1 resources\r\nreturn a json array"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/symbiote/getListOfL2",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{'token':'7c7b78w0kc77d','fedid':'ktfed','platid':'icom-platform'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/getListOfL2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"getListOfL2"
+					]
+				},
+				"description": "get list of L2 resources\r\nreturn a json array"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/symbiote/getL2Res",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{'token':'7c7b088dw0al0','fedid':'fed1','resname':'wrp.ktsak.2.3','platid':'icom-platform'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/getL2Res",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"getL2Res"
+					]
+				},
+				"description": "get a resource L2. \r\nreturn a jsonobject"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/symbiote/getL1Res",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{'token':'7c7b0880870ka','resid':'6045fff0ae2b410001d042f1','platid':'icom-platform'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/getL1Res",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"getL1Res"
+					]
+				},
+				"description": "get a L1 resource using res id\r\nreturn a jsonobject"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/symbiote/registerL1Res",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"resname\":\"wrp.ktsak.2.2\",\r\n\"pluginid\":\"RapPlugin1\",\r\n\"restype\":1,\r\n\"token\":\"7c7b0880870ka\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/registerL1Res",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"registerL1Res"
+					]
+				},
+				"description": "register a resource using json info"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/symbiote/shareL1Res",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{'token':'7c7b088dw0al0','fedid':'ktfed,fed1','resname':'wrp.ktsak.2.3','platid':'icom-platform'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/shareL1Res",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"shareL1Res"
+					]
+				},
+				"description": "share a L1 resource to a list feds"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/symbiote/registerUser",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"usrktsak1\",\r\n\"password\":\"kktsak\",\r\n\"email\":\"a@g.com\",\r\n\"token\":\"7c7b07a7aab0a\"}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/symbiote/registerUser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"symbiote",
+						"registerUser"
+					]
+				},
+				"description": "register a platform user"
+			},
+			"response": []
+		}
+	]
+}
