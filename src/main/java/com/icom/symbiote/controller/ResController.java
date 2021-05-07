@@ -59,9 +59,10 @@ public class ResController {
         String ans = SymbioteAdmin.registerL1ResRes(
                 jobj.getString("token"),
                 exampleHomePlatformIdentifier,
-                jobj.getString("resname"),
+                jobj.getString("internalId"),
                 jobj.getInt("restype"),
-                jobj.getString("platid")
+                jobj.getString("platid"),
+                jobj.getJSONObject("resource")
                 );
         return ans;
     }
@@ -84,8 +85,7 @@ public class ResController {
                 exampleHomePlatformIdentifier,
                 jobj.getString("username"),
                 jobj.getString("password"),
-                jobj.getString("email"),
-                jobj.getString("platid")
+                jobj.getString("email")
         );
         return ans;
     }
