@@ -1,4 +1,4 @@
-package com.icom.symbiote.utilities;
+package com.icom.symbiote.utils;
 
 import eu.h2020.symbiote.model.cim.*;
 import org.json.JSONArray;
