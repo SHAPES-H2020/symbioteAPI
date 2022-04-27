@@ -1,0 +1,597 @@
+swagger: '2.0'
+info:
+  description: This is a SymbioteAPI server
+  version: 1.0.5
+  title: SymbioteAPI
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v2
+tags:
+  - name: Utilities
+    description: Useful end points
+  - name: L1 Resources
+    description: Everything about L1 Resources
+  - name: L2 Resources
+    description: Everything about L2 Resources
+  - name: User
+    description: Operations about user
+schemes:
+  - http
+paths:
+  /symbiote/resource/get/ListOfL1:
+    post:
+      tags:
+        - L1 Resources
+      summary: List of L1
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: get a list of L1 Resources
+          required: true
+          schema:
+            $ref: '#/definitions/getListOfL1Res'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/getdeviceid:
+    post:
+      tags:
+        - Utilities
+      summary: Map internalid with id
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: get the id of a resource
+          required: true
+          schema:
+            $ref: '#/definitions/getresourceid'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/access/sensor:
+    post:
+      tags:
+        - Utilities
+      summary: get observation(s)
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: get observation(s)
+          required: true
+          schema:
+            $ref: '#/definitions/getobservation'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/register/L1Res:
+    post:
+      tags:
+        - L1 Resources
+      summary: Register L1
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: platformusertoken
+          type: string
+          example: v2.local.aBVKM67AudRnHtie39o4Wr3RfTOY6k6vyJsRAl78FRQS0kNPobO3WjofmuM7T8S4WboFJkveZJoNLB9DdXqjHYM0OYJabcfnhB0SPVAV1xqgJPT1hkbuNYoP2mn-Sllkph2sxRqn42mngI7RRNKbLwqn9j-e71cvAIk9aZ0439KrOIRI0kANB_cHDHHL1-fYPaMqdcf1
+          description: asapa token of the platform owner user
+          required: true
+        - in: body
+          name: resourceinternalid
+          type: string
+          example: '123456'
+          description: internal id of the resource
+          required: true
+        - in: body
+          name: resourceplatformid
+          type: string
+          example: test-platform
+          description: platform id
+          required: true
+        - in: body
+          name: pluginid
+          type: string
+          example: platform_01
+          description: plugin id
+          required: true
+        - in: body
+          name: resourceinfo
+          type: string
+          example:
+            '@c': .StationarySensor
+            name: Stationary 1
+            description:
+              - This is stationary 1
+            interworkingServiceURL: https://www.example.com/Test1Platform
+            locatedAt:
+              '@c': .WGS84Location
+              longitude: 5.349014
+              latitude: 25.864716
+              altitude: 35
+              name: SomeLocation
+              description:
+                - Secret location
+            featureOfInterest:
+              name: Room1
+              description:
+                - This is room 1
+              hasProperty:
+                - temperature
+            observesProperty:
+              - temperature
+              - humidity
+          description: json info of the resource
+          required: true
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/get/ListOfL2:
+    post:
+      tags:
+        - L2 Resources
+      summary: List of L2
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: get a list of L2 Resources
+          required: true
+          schema:
+            $ref: '#/definitions/getListOfL2Res'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/get/L1Res:
+    post:
+      tags:
+        - L1 Resources
+      summary: Info of L1
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: get info of L1 Resource
+          required: true
+          schema:
+            $ref: '#/definitions/getL1Res'
+        - in: body
+          name: resourcename
+          type: string
+          example: testname
+          description: name of the resource
+          required: false
+        - in: body
+          name: resourceid
+          type: string
+          example: '12345'
+          description: id of the resource
+          required: false
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid token
+  /symbiote/resource/delete/L1Res:
+    post:
+      tags:
+        - L1 Resources
+      summary: Delete L1
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: platformusertoken
+          type: string
+          example: y9879yuioyuiouiouououououoi
+          description: asapa token of the platform user
+          required: true
+        - in: body
+          name: resourceplatformid
+          type: string
+          example: l2-icom-platform
+          description: id of the platform
+          required: true
+        - in: body
+          name: resourceinternalid
+          type: string
+          example: '12345012345'
+          description: internal id of the resource
+          required: true
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/access/L2Res:
+    post:
+      tags:
+        - L2 Resources
+      summary: Access L2
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Access L2 Resource
+          required: true
+          schema:
+            $ref: '#/definitions/getL2Res'
+        - in: body
+          name: topnumber
+          type: string
+          example: '10'
+          description: number of top observations
+          required: false
+        - in: body
+          name: actbody
+          type: string
+          example: '{''OnOffCapabililty'' : [{''on'' : true}}'
+          description: action body
+          required: true
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/access/L1Res:
+    post:
+      tags:
+        - L1 Resources
+      summary: Access L1 of type Sensor, StationarySensor, Sensor, Actuator, Service
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Access L1 Resource
+          required: true
+          schema:
+            $ref: '#/definitions/getL1Res'
+        - in: body
+          name: resourcename
+          type: string
+          example: testname
+          description: name of the resource
+          required: false
+        - in: body
+          name: resourceid
+          type: string
+          example: '12345'
+          description: id of the resource
+          required: false
+        - in: body
+          name: topnumber
+          type: string
+          example: '10'
+          description: number of top observations
+          required: false
+        - in: body
+          name: actbody
+          type: string
+          example: '{''OnOffCapabililty'' : [{''on'' : true}}'
+          description: action body
+          required: true
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/share/L1Res:
+    post:
+      tags:
+        - L1 Resources
+      summary: Share L1
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: share L1 Resource
+          required: true
+          schema:
+            $ref: '#/definitions/shareL1Res'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/unshare/L1Res:
+    post:
+      tags:
+        - L1 Resources
+      summary: unShare L1
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: unshare L1 Resource
+          required: true
+          schema:
+            $ref: '#/definitions/shareL1Res'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/resource/get/L2Res:
+    post:
+      tags:
+        - L2 Resources
+      summary: Info of L2
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: get info of L2 Resource
+          required: true
+          schema:
+            $ref: '#/definitions/getL2Res'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+  /symbiote/admin/registerUser/me/toSymbiote:
+    post:
+      tags:
+        - User
+      summary: Register me to symbiote
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Register a valid shapes user to symbiote
+          required: true
+          schema:
+            $ref: '#/definitions/registerme'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: exception
+      security:
+        - api_key: []
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  Tag:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    xml:
+      name: Tag
+  getListOfL1Res:
+    type: object
+    properties:
+      platformusertoken:
+        type: string
+        description: token given from asapa for a symbiote platorm user
+      resourceplatformid:
+        type: string
+        description: platform id where resources are located in
+    xml:
+      name: getL1List
+  getListOfL2Res:
+    type: object
+    properties:
+      paamusertoken:
+        type: string
+        description: token given from asapa for a symbiote platorm user
+      resourceplatformid:
+        type: string
+        description: platform id where resources are located in
+      federationid:
+        type: string
+        description: federation id where resources are shared to
+    xml:
+      name: getL2List
+  getL1Res:
+    type: object
+    properties:
+      platformusertoken:
+        type: string
+        description: token given from asapa for a symbiote platorm user
+      resourceplatformid:
+        type: string
+        description: platform id where resources are located in
+    xml:
+      name: getL1List
+  getL2Res:
+    type: object
+    properties:
+      paamusertoken:
+        type: string
+        description: token given from asapa for a symbiote platorm user
+      resourceplatformid:
+        type: string
+        description: platform id where resources are located in
+      resourcename:
+        type: string
+        description: name of the resource
+      resourceid:
+        type: string
+        description: id of the resource
+      federationid:
+        type: string
+        description: federation id where resources are shared to
+    xml:
+      name: getL2Res
+  shareL1Res:
+    type: object
+    properties:
+      platformownertoken:
+        type: string
+        description: token given from asapa for a symbiote platorm owner
+      resourceplatformid:
+        type: string
+        description: platform id where resources are located in
+      resourceinternalid:
+        type: string
+        description: internal id of the resource
+      federationid:
+        type: string
+        description: federation id where resources are shared to
+    xml:
+      name: shareL1Res
+  ListOfRes:
+    type: array
+    xml:
+      wrapped: true
+    items:
+      $ref: '#/definitions/Resource'
+  Resource:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    xml:
+      name: Resource
+  registerme:
+    type: object
+    properties:
+      asapatoken:
+        type: string
+        description: Asapa token of the shapes user
+    xml:
+      name: Resource
+  getresourceid:
+    type: object
+    properties:
+      asapatoken:
+        type: string
+        description: Asapa token of the shapes user
+      resourceplatformid:
+        type: string
+        description: platform id
+      resourceinternalid:
+        type: string
+        description: internal id
+    xml:
+      name: Resource
+  getobservation:
+    type: object
+    properties:
+      asapatoken:
+        type: string
+        description: Asapa token of the shapes user
+      resourceplatformid:
+        type: string
+        description: platform id
+      resourceinternalid:
+        type: string
+        description: internal id
+      topnum:
+        type: string
+        description: number of top observations or empty to get the last one
+    xml:
+      name: Resource
+  registerpaam:
+    type: object
+    properties:
+      admininfo:
+        type: object
+        properties:
+          username:
+            type: string
+            description: username of user credentials
+          password:
+            type: string
+            description: password of user credentials
+      username:
+        type: string
+        description: paam username
+      password:
+        type: string
+        description: paam password
+      email:
+        type: string
+        description: paamuser email
+      userplatformid:
+        type: string
+        description: paamuser platform id
+    xml:
+      name: Resource
