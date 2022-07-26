@@ -1,218 +1,833 @@
 {
-	"info": {
-		"_postman_id": "e4aff4ae-5b3a-49d7-a5c8-44aa731504c5",
-		"name": "symbiote-api",
-		"schema": "http://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "http://localhost:9191/symbiote/login",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {'usr':'icom1','psw':'icom'},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"login"
-					]
-				},
-				"description": "login to symbiote\r\nget a token\r\n{\"token\":\"7c7bwl88c70w7\"}"
-			},
-			"response": ["body": "{\"token\":\"7c7bwdkk7k7dc\"}"
-				}
-			]
-		},
-		{
-			"name": "http://localhost:9191/symbiote/getListOfL1",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {'token':'7c7b0880870ka','platid':'icom-platform'},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/getListOfL1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"getListOfL1"
-					]
-				},
-				"description": "get a list of L1 resources platid could be empty in order to get a list of all the L1 resources\r\nreturn a json array"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9191/symbiote/getListOfL2",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {'token':'7c7b78w0kc77d','fedid':'ktfed','platid':'icom-platform'},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/getListOfL2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"getListOfL2"
-					]
-				},
-				"description": "get list of L2 resources\r\nreturn a json array"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9191/symbiote/getL2Res",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {'token':'7c7b088dw0al0','fedid':'fed1','resname':'wrp.ktsak.2.3','platid':'icom-platform'},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/getL2Res",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"getL2Res"
-					]
-				},
-				"description": "get a resource L2. \r\nreturn a jsonobject"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9191/symbiote/getL1Res",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {'token':'7c7b0880870ka','resid':'6045fff0ae2b410001d042f1','platid':'icom-platform'},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/getL1Res",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"getL1Res"
-					]
-				},
-				"description": "get a L1 resource using res id\r\nreturn a jsonobject"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9191/symbiote/registerL1Res",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body":{\"resname\":\"wrp.ktsak.2.2\",\r\n\"pluginid\":\"RapPlugin1\",\r\n\"restype\":1,\r\n\"token\":\"7c7b0880870ka\"},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/registerL1Res",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"registerL1Res"
-					]
-				},
-				"description": "register a resource using json info"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9191/symbiote/shareL1Res",
-			"protocolProfileBehavior": {
-				"followRedirects": false,
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {'token':'7c7b088dw0al0','fedid':'ktfed,fed1','resname':'wrp.ktsak.2.3','platid':'icom-platform'},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/shareL1Res",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"shareL1Res"
-					]
-				},
-				"description": "share a L1 resource to a list feds"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9191/symbiote/registerUser",
-			"protocolProfileBehavior": {
-				"strictSSL": false
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {\"username\":\"usrktsak1\",\r\n\"password\":\"kktsak\",\r\n\"email\":\"a@g.com\",\r\n\"token\":\"7c7b07a7aab0a\"},
-				"url": {
-					"raw": "http://localhost:9191/symbiote/registerUser",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9191",
-					"path": [
-						"symbiote",
-						"registerUser"
-					]
-				},
-				"description": "register a platform user"
-			},
-			"response": []
-		}
-	]
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a SymbioteAPI server",
+        "version": "1.0.5",
+        "title": "SymbioteAPI",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v2",
+    "tags": [
+        {
+            "name": "Utilities",
+            "description": "Useful end points"
+        }, {
+            "name": "L1 Resources",
+            "description": "Everything about L1 Resources"
+        }, {
+            "name": "L2 Resources",
+            "description": "Everything about L2 Resources"
+        }, {
+            "name": "User",
+            "description": "Operations about user"
+        }],
+    "schemes": ["http"],
+    "paths": {
+        "/symbiote/resource/get/ListOfL1": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "List of L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "get a list of L1 Resources",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getListOfL1Res"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/getresourceidfrominternalID": {
+            "post": {
+                "tags": ["Utilities"],
+                "summary": "Map internalid with id",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "get the id of a resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getresourceid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/register": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "Register L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "platformusertoken",
+                        "type": "string",
+                        "example": "v2.local.aBVKM67AudRnHtie39o4Wr3RfTOY6k6vyJsRAl78FRQS0kNPobO3WjofmuM7T8S4WboFJkveZJoNLB9DdXqjHYM0OYJabcfnhB0SPVAV1xqgJPT1hkbuNYoP2mn-Sllkph2sxRqn42mngI7RRNKbLwqn9j-e71cvAIk9aZ0439KrOIRI0kANB_cHDHHL1-fYPaMqdcf1",
+                        "description": "asapa token of the platform owner user",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceplatformid",
+                        "type": "string",
+                        "example": "test-platform",
+                        "description": "platform id",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "pluginid",
+                        "type": "string",
+                        "example": "plugin001",
+                        "description": "plugin id",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceinternalid",
+                        "type": "string",
+                        "example": "internal1",
+                        "description": "internal id",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "accesspolicytype",
+                        "type": "string",
+                        "example": "PUBLIC",
+                        "description": "policy type",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "accesspolicymap",
+                        "type": "string",
+                        "example": "[]",
+                        "description": "policy map",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "filterpolicytype",
+                        "type": "string",
+                        "example": "PUBLIC",
+                        "description": "policy type",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "filterpolicymap",
+                        "type": "string",
+                        "example": "[]",
+                        "description": "policy map",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceinfo",
+                        "type": "string",
+                        "example": {  "@c": ".StationarySensor",  "name": "Stationary 1",  "description": [    "This is stationary 1" ],  "interworkingServiceURL":"https://www.example.com/Test1Platform",  "locatedAt": {    "@c": ".WGS84Location",    "longitude": 5.349014,    "latitude": 25.864716,    "altitude": 35,    "name": "SomeLocation",    "description": [    	"Secret location"	]  },  "featureOfInterest": {    "name": "Room1",    "description": [      "This is room 1"    ],    "hasProperty": [      "temperature"    ]  },  "observesProperty": [    "temperature",    "humidity"  ]},
+                        "description": "json info of the resource",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+
+                    },
+                    "400": {
+                        "description": "exception"
+                    }
+                }
+            }
+        },
+        "/symbiote/resource/update": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "Update L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "platformusertoken",
+                        "type": "string",
+                        "example": "v2.local.aBVKM67AudRnHtie39o4Wr3RfTOY6k6vyJsRAl78FRQS0kNPobO3WjofmuM7T8S4WboFJkveZJoNLB9DdXqjHYM0OYJabcfnhB0SPVAV1xqgJPT1hkbuNYoP2mn-Sllkph2sxRqn42mngI7RRNKbLwqn9j-e71cvAIk9aZ0439KrOIRI0kANB_cHDHHL1-fYPaMqdcf1",
+                        "description": "asapa token of the platform owner user",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceplatformid",
+                        "type": "string",
+                        "example": "test-platform",
+                        "description": "platform id",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceinfo",
+                        "type": "string",
+                        "example": {  "@c": ".StationarySensor",  "name": "Stationary 1",  "description": [    "This is stationary 1" ],  "interworkingServiceURL":"https://www.example.com/Test1Platform",  "locatedAt": {    "@c": ".WGS84Location",    "longitude": 5.349014,    "latitude": 25.864716,    "altitude": 35,    "name": "SomeLocation",    "description": [    	"Secret location"	]  },  "featureOfInterest": {    "name": "Room1",    "description": [      "This is room 1"    ],    "hasProperty": [      "temperature"    ]  },  "observesProperty": [    "temperature",    "humidity"  ]},
+                        "description": "json info of the resource",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+
+                    },
+                    "400": {
+                        "description": "exception"
+                    }
+                }
+            }
+        },
+        "/symbiote/admin/registerUser/me/toPAAM/toAsapa": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Register me to symbiote as PAAM user",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "asapatoken",
+                        "type": "string",
+                        "example": "v2.local.aBVKM67AudRnHtie39o4Wr3RfTOY6k6vyJsRAl78FRQS0kNPobO3WjofmuM7T8S4WboFJkveZJoNLB9DdXqjHYM0OYJabcfnhB0SPVAV1xqgJPT1hkbuNYoP2mn-Sllkph2sxRqn42mngI7RRNKbLwqn9j-e71cvAIk9aZ0439KrOIRI0kANB_cHDHHL1-fYPaMqdcf1",
+                        "description": "asapa token of the platform owner user",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "admininfo",
+                        "type": "string",
+                        "example": { "platformid":"platformid","username":"myname","password":"mypass"},
+                        "description": "json info of the resource",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+
+                    },
+                    "400": {
+                        "description": "exception"
+                    }
+                }
+            }
+        },
+        "/symbiote/resource/get/ListOfL2": {
+            "post": {
+                "tags": ["L2 Resources"],
+                "summary": "List of L2",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "get a list of L2 Resources",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getListOfL2Res"
+                        }
+                    }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }
+                }
+            }
+        },
+        "/symbiote/resource/get/L1Res": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "Info of L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "get info of L1 Resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getL1Res"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourcename",
+                        "type": "string",
+                        "example": "testname",
+                        "description": "name of the resource",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceid",
+                        "type": "string",
+                        "example": "12345",
+                        "description": "id of the resource",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceplatformid",
+                        "type": "string",
+                        "example": "platform",
+                        "description": "id of the platform",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "Invalid token"
+                    }
+                }
+            }
+        },
+        "/symbiote/resource/delete/L1Res": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "Delete L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "platformusertoken",
+                        "type": "string",
+                        "example": "y9879yuioyuiouiouououououoi",
+                        "description": "asapa token of the platform user",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceplatformid",
+                        "type": "string",
+                        "example": "l2-icom-platform",
+                        "description": "id of the platform",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceinternalid",
+                        "type": "string",
+                        "example": "12345012345",
+                        "description": "internal id of the resource",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/access/L2Res": {
+            "post": {
+                "tags": ["L2 Resources"],
+                "summary": "Access L2",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "Access L2 Resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getL2Res"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "topnumber",
+                        "type": "string",
+                        "example": "10",
+                        "description": "number of top observations",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "actbody",
+                        "type": "string",
+                        "example": "{'OnOffCapabililty' : [{'on' : true}}",
+                        "description": "action body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/access/L1Res": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "Access L1 of type Sensor, StationarySensor, Sensor, Actuator, Service",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "Access L1 Resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getL1Res"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourcename",
+                        "type": "string",
+                        "example": "testname",
+                        "description": "name of the resource",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "resourceid",
+                        "type": "string",
+                        "example": "12345",
+                        "description": "id of the resource",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "topnumber",
+                        "type": "string",
+                        "example": "10",
+                        "description": "number of top observations",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "actbody",
+                        "type": "string",
+                        "example": "{'OnOffCapabililty' : [{'on' : true}}",
+                        "description": "action body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/share/L1Res": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "Share L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "share L1 Resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/shareL1Res"
+                        }
+                    }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/unshare/L1Res": {
+            "post": {
+                "tags": ["L1 Resources"],
+                "summary": "unShare L1",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "unshare L1 Resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/shareL1Res"
+                        }
+                    }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/resource/get/L2Res": {
+            "post": {
+                "tags": ["L2 Resources"],
+                "summary": "Info of L2",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "get info of L2 Resource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getL2Res"
+                        }
+                    }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                        
+                    },
+                    "400": {
+                        "description": "exception"
+                    }                }
+            }
+        },
+        "/symbiote/admin/registerUser/me/toSymbiote": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Register me to symbiote",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json", "application/xml"],
+                "parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "Register a valid shapes user to symbiote",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/registerme"
+                        }
+                    }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "exception"
+                    }
+                },
+                "security": [{
+                        "api_key": []
+                    }]
+            }
+        }
+},
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+        }
+    },
+"definitions": {
+        "Tag": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Tag"
+            }
+        },
+        "getListOfL1Res": {
+            "type": "object",
+            "properties": {
+                "platformusertoken": {
+                    "type": "string",
+                    "description": "token given from asapa for a symbiote platorm user"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id where resources are located in"
+                }
+            },
+            "xml": {
+                "name": "getL1List"
+            }
+        },
+        "getListOfL2Res": {
+            "type": "object",
+            "properties": {
+                "paamusertoken": {
+                    "type": "string",
+                    "description": "token given from asapa for a symbiote platorm user"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id where resources are located in"
+                },
+                "federationid": {
+                    "type": "string",
+                    "description": "federation id where resources are shared to"
+                }
+            },
+            "xml": {
+                "name": "getL2List"
+            }
+        },
+        "getL1Res": {
+            "type": "object",
+            "properties": {
+                "platformusertoken": {
+                    "type": "string",
+                    "description": "token given from asapa for a symbiote platorm user"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id where resources are located in"
+                }
+            },
+            "xml": {
+                "name": "getL1List"
+            }
+        },
+        "getL2Res": {
+            "type": "object",
+            "properties": {
+                "paamusertoken": {
+                    "type": "string",
+                    "description": "token given from asapa for a symbiote platorm user"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id where resources are located in"
+                },
+                "resourcename": {
+                    "type": "string",
+                    "description": "name of the resource"
+                },
+                "resourceid": {
+                    "type": "string",
+                    "description": "id of the resource"
+                },
+                "federationid": {
+                    "type": "string",
+                    "description": "federation id where resources are shared to"
+                }
+            },
+            "xml": {
+                "name": "getL2Res"
+            }
+        },
+        "shareL1Res": {
+            "type": "object",
+            "properties": {
+                "platformownertoken": {
+                    "type": "string",
+                    "description": "token given from asapa for a symbiote platorm owner"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id where resources are located in"
+                },
+                "resourceinternalid": {
+                    "type": "string",
+                    "description": "internal id of the resource"
+                },
+                "federationid": {
+                    "type": "string",
+                    "description": "federation id where resources are shared to"
+                }
+            },
+            "xml": {
+                "name": "shareL1Res"
+            }
+        },
+        "ListOfRes":{
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "$ref": "#/definitions/Resource"
+                    }            
+        },
+        "Resource": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Resource"
+            }
+        },
+        "registerme": {
+            "type": "object",
+            "properties": {
+                "asapatoken": {
+                    "type": "string",
+                    "description": "Asapa token of the shapes user"
+                }
+            },
+            "xml": {
+                "name": "Resource"
+            }
+        },
+        "getresourceid": {
+            "type": "object",
+            "properties": {
+                "platformusertoken": {
+                    "type": "string",
+                    "description": "Asapa token of the shapes user"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id"
+                },
+                "resourceinternalid": {
+                    "type": "string",
+                    "description": "internal id"
+                }
+            },
+            "xml": {
+                "name": "Resource"
+            }
+        },
+        "getobservation": {
+            "type": "object",
+            "properties": {
+                "asapatoken": {
+                    "type": "string",
+                    "description": "Asapa token of the shapes user"
+                },
+                "resourceplatformid": {
+                    "type": "string",
+                    "description": "platform id"
+                },
+                "resourceinternalid": {
+                    "type": "string",
+                    "description": "internal id"
+                },
+                "topnum": {
+                    "type": "string",
+                    "description": "number of top observations or empty to get the last one"
+                }
+            },
+            "xml": {
+                "name": "Resource"
+            }
+        },
+        "registerpaam": {
+            "type": "object",
+            "properties": {
+                "admininfo": {
+                    "type": "object",
+                    "properties":{
+                        "username": {
+                            "type": "string",
+                            "description": "username of user credentials"
+                        },
+                        "password": {
+                            "type": "string",
+                            "description": "password of user credentials"
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "description": "paam username"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "paam password"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "paamuser email"
+                },
+                "userplatformid": {
+                    "type": "string",
+                    "description": "paamuser platform id"
+                }
+            },
+            "xml": {
+                "name": "Resource"
+            }
+        }
+    }
 }
